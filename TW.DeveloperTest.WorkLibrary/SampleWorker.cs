@@ -24,7 +24,6 @@ namespace TW.DeveloperTest.WorkLibrary
                 //TODO Log to logging library successes
                 _logger.Log(new LogMessage
                 {
-                    Id = new Guid().ToString(),
                     Message = "Success!",
                     LogLevel = LogLevel.Information,
                     TimeStamp = DateTime.Now
