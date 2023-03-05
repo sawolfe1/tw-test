@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using TW.DeveloperTest.Contracts;
+using TW.DeveloperTest.WorkLibrary;
 
 namespace TW.DeveloperTest.ConsoleApp
 {
@@ -10,6 +11,7 @@ namespace TW.DeveloperTest.ConsoleApp
         {
             bool run = true;
             IWorker worker = Ioc.Resolve<IWorker>();
+            var logger = Ioc.Resolve<ILogger>();
 
             do
             {
@@ -29,12 +31,24 @@ namespace TW.DeveloperTest.ConsoleApp
                     var result = worker.GetResult();
 
                     //TODO replace with logging library
-                    Console.WriteLine($"output - {result}");
+                    logger.Log(new LogMessage
+                    {
+                        Message = $"output - {result}",
+                        LogLevel = LogLevel.Information,
+                        TimeStamp = DateTime.Now
+                    });
+                    //Console.WriteLine($"output - {result}");
                 }
                 catch (Exception e)
                 {
                     //TODO replace with logging library
-                    Console.WriteLine($"error - {e.Message}");
+                    logger.Log(new LogMessage
+                    {
+                        Message = $"error - {e.Message}",
+                        LogLevel = LogLevel.Error,
+                        TimeStamp = DateTime.Now
+                    });
+                    //Console.WriteLine($"error - {e.Message}");
                 }
                 
                 Thread.Sleep(500);
