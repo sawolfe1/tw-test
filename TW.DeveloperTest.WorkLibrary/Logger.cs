@@ -10,6 +10,7 @@ namespace TW.DeveloperTest.WorkLibrary
         {
             Console.WriteLine($"LoggerId:{Id}\n" +
                               $"MessageId:{message.Id}\n" +
+                              $"Level {message.LogLevel.ToString()}\n" +
                               $"Message:{message.Message}");
         }
         
