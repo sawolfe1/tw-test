@@ -4,9 +4,7 @@ namespace TW.DeveloperTest.Contracts
 {
     public interface ILogger
     {
-        int Id { get; set; } 
-        string Message { get; set; }
-        LogLevel LogLevel { get; set; }
-        DateTime TimeStamp { get; set; }
+        string Id { get; set; }
+        void Log(ILogMessage message);
     }
 }
