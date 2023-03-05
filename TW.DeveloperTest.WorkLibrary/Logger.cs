@@ -8,12 +8,14 @@ namespace TW.DeveloperTest.WorkLibrary
         public string Id { get; set; }
         public void Log(ILogMessage message)
         {
-            Console.WriteLine($"{message.Message}");
+            Console.WriteLine($"LoggerId:{Id}\n" +
+                              $"MessageId:{message.Id}\n" +
+                              $"Message:{message.Message}");
         }
         
         public Logger()
         {
-            Id = new Guid().ToString();
+            Id = Guid.NewGuid().ToString();
         }
     }
 }
