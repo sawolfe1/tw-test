@@ -8,10 +8,10 @@ namespace TW.DeveloperTest.WorkLibrary
         public string Id { get; set; }
         public void Log(ILogMessage message)
         {
-            Console.WriteLine($"LoggerId:{Id}\n" +
-                              $"MessageId:{message.Id}\n" +
-                              $"Level {message.LogLevel.ToString()}\n" +
-                              $"Message:{message.Message}");
+            Console.WriteLine($"LoggerId: {Id}\n" +
+                              $"MessageId: {message.Id}\n" +
+                              $"Level: {message.LogLevel.ToString()}\n" +
+                              $"Message: {message.Message}");
         }
         
         public Logger()
